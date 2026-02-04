@@ -1,0 +1,10 @@
+privilegio;descricao_risco
+prvDeleteSystemUser;Excluir usuarios do sistema (causa orfandade de registros)
+prvWriteSystemUser;Editar perfis de outros usuarios
+prvDeleteBusinessUnit;Excluir unidades de negocio da hierarquia
+prvWriteBusinessUnit;Alterar configuracoes estruturais da empresa
+prvWriteSecurityRole;Modificar as proprias funcoes de seguranca
+prvAssignRole;Atribuir funcoes de acesso a terceiros
+prvWriteOrganization;Alterar configuracoes globais do ambiente
+prvDeleteAuditHistory;Apagar rastros de auditoria do sistema
+prvWriteMailbox;Interceptar ou alterar caixas de e-mail de outros
