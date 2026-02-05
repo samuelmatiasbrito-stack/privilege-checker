@@ -1,12 +1,9 @@
 import csv
 
-class DireitoAcesso:
-    def __init__(self, nome_direitodeacesso, nome_privilegios):
-        self.nome = nome_direitodeacesso
-        self.privilegios = nome_privilegios
-
-with open('roles.csv', newline='', encoding='utf-8') as arquivo:
-    leitor = csv.reader(arquivo, delimiter= ';')
-    for linha in leitor:
-        if 'prvReadAccount' in linha:
-            print(linha)
+with open('roles.csv', newline= '', encoding= 'utf-8') as direitos_arq:
+    direitos = csv.reader(direitos_arq, delimiter=';')
+    with open('restricted_privileges.csv', newline= '', encoding= 'utf-8') as privilegios_arq:
+        privilegios = csv.reader(privilegios_arq, delimiter=';')
+        ## parei na criação do for
+            
+            
