@@ -15,19 +15,8 @@ Opcao: ')
     elif question == '2':
         print('Qual Role você quer consultar?: ')
         print(Validador.ListarRoles('roles.csv'))
-        if entrada.isdigit():
-            idx = int(entrada) - 1
-            if 0 <= idx < len( Validador.Arquivo("roles.csv")):
-                role_nome =  Validador.Arquivo("roles.csv")[idx][0]
-            else:
-                print("Número inválido")
-                continue
-        else:
-            role_nome = entrada
-        for Privilege in Validador.Arquivo("restricted_privileges.csv"):
-            if Privilege[0].lower() == role_nome.lower():
-                print(f"{role_nome} possui {Privilege[0]} ({Privilege[1]})")
-
+        entrada = input('Digite o numero correspondente da Role: ')
+        print(Validador.PrvUnicaRole(entrada, 'roles.csv', 'restricted_privileges.csv'))
 
         
     elif question == '3':

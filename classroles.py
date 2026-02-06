@@ -1,6 +1,8 @@
 import csv
 
 class RolesValidator():
+    def __init__(self, caminho):
+        self.caminho = caminho
     def Arquivo(self, caminho):
         with open(caminho, newline='', encoding='utf-8') as arquivo:
             newarquivo = list(csv.reader(arquivo, delimiter=';'))
@@ -25,15 +27,20 @@ class RolesValidator():
                 print("Número inválido")
                 return
             
-    def PrvUnicaRole(self,entrada, roles, prvrestritos):
-        if entrada.isdigit():
-            idx = int(entrada) - 1
-            if 0 <= idx < len(self.Arquivo(roles)):
-                role_nome = self.Arquivo(roles)[idx][0]
+    def PrvUnicaRole(self,entrada, caminho_roles, caminho_prvrestritos):
+        if entrada.isdigit() and int(entrada) <= len(self.ListarRoles(caminho_roles)):
+            indice_role = int(entrada) - 1
+            encontrados = []
+            for privilegio in self.Arquivo(caminho_roles)[indice_role][1:]:
+                for restrito in self.Arquivo(caminho_prvrestritos):
+                    if privilegio == restrito[0]:
+                        encontrados.append(f"{privilegio}: {restrito[1]}")
+            if encontrados:
+                return f"{self.Arquivo(caminho_roles)[indice_role][0]} possui {' | '.join(encontrados)}"
             else:
-                print("numero invalido")
+                return f"{self.Arquivo(caminho_roles)[indice_role][0]} não possui privilegios restritos"
         else:
-            role_nome = entrada
-        for Privilege in self.Arquivo(prvrestritos):
-            if Privilege[0].lower() == role_nome.lower():
-                print(f"{role_nome} possui {Privilege[0]} ({Privilege[1]})")
+            print(f'Aceito apenas números entre 1 - {len(self.ListarRoles(caminho_roles))}')
+
+
+
