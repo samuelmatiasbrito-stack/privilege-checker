@@ -1,5 +1,10 @@
+# opção 3 dando erro 
+
+
+
+
 from classroles import RolesValidator
-Validador = RolesValidator()
+Validador = RolesValidator('roles.csv', 'restricted_privileges.csv')
 
 while True:
     question = input('Sistema carregado, qual consulta você deseja realizar? \n\
@@ -9,23 +14,20 @@ while True:
 Opcao: ')
     if question == '1':
         print('Qual Role você quer consultar?: ')
-        print(Validador.ListarRoles('roles.csv'))
+        print(Validador.ListarRoles())
         entrada = input('Digite o numero correspondente da Role: ')
-        print(Validador.RoleEspecifica(entrada,'roles.csv'))
+        print(Validador.RoleEspecifica(entrada))
     elif question == '2':
         print('Qual Role você quer consultar?: ')
-        print(Validador.ListarRoles('roles.csv'))
+        print(Validador.ListarRoles())
         entrada = input('Digite o numero correspondente da Role: ')
-        print(Validador.PrvUnicaRole(entrada, 'roles.csv', 'restricted_privileges.csv'))
+        print(Validador.PrvUnicaRole(entrada))
 
         
     elif question == '3':
-        for Privilege in Validador.Arquivo('restricted_privileges.csv'):
-            for Role in Validador.Arquivo('roles.csv'):
+        for Privilege in Validador.Arquivo(Validador.caminho_prvrestritos):
+            for Role in Validador.Arquivo(Validador.caminho_roles):
                 if Privilege[0] in Role:
                     print(f'{Role[0]} possui {Privilege[0]}({Privilege[1]})')
-    
-    
-        
 
                 
