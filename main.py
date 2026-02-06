@@ -1,7 +1,42 @@
-from classroles import Arq
-arquivo = Arq()
+from classroles import RolesValidator
+Validador = RolesValidator()
 
-for Privilege in arquivo.caminho_arq('restricted_privileges.csv'):
-    for Role in arquivo.caminho_arq('roles.csv'):
-        if Privilege[0] in Role:
-            print(f'Apenas {Role[0]} possui o privilégio {Privilege[0]} ({Privilege[1]})')
+while True:
+    question = input('Sistema carregado, qual consulta você deseja realizar? \n\
+1- Consultar todos os privilegios de uma Role espécifica \n\
+2- Consultar todos os privilegios restritos de uma Role espécifica \n\
+3- Consultar todos os privilegios restritos de todas as Roles \n\
+Opcao: ')
+    if question == '1':
+        print('Qual Role você quer consultar?: ')
+        print(Validador.ListarRoles('roles.csv'))
+        entrada = input('Digite o numero correspondente da Role: ')
+        print(Validador.RoleEspecifica(entrada,'roles.csv'))
+    elif question == '2':
+        print('Qual Role você quer consultar?: ')
+        print(Validador.ListarRoles('roles.csv'))
+        if entrada.isdigit():
+            idx = int(entrada) - 1
+            if 0 <= idx < len( Validador.Arquivo("roles.csv")):
+                role_nome =  Validador.Arquivo("roles.csv")[idx][0]
+            else:
+                print("Número inválido")
+                continue
+        else:
+            role_nome = entrada
+        for Privilege in Validador.Arquivo("restricted_privileges.csv"):
+            if Privilege[0].lower() == role_nome.lower():
+                print(f"{role_nome} possui {Privilege[0]} ({Privilege[1]})")
+
+
+        
+    elif question == '3':
+        for Privilege in Validador.Arquivo('restricted_privileges.csv'):
+            for Role in Validador.Arquivo('roles.csv'):
+                if Privilege[0] in Role:
+                    print(f'{Role[0]} possui {Privilege[0]}({Privilege[1]})')
+    
+    
+        
+
+                
