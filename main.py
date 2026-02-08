@@ -1,8 +1,3 @@
-# opção 3 dando erro 
-
-
-
-
 from classroles import RolesValidator
 Validador = RolesValidator('roles.csv', 'restricted_privileges.csv')
 
@@ -26,7 +21,7 @@ Opcao: ')
         
     elif question == '3':
         for Privilege in Validador.Arquivo(Validador.caminho_prvrestritos):
-            for Role in Validador.Arquivo(Validador.caminho_roles):
+            for Role in Validador.roles:
                 if Privilege[0] in Role:
                     print(f'{Role[0]} possui {Privilege[0]}({Privilege[1]})')
 

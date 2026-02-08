@@ -5,10 +5,11 @@ class RolesValidator():
     def __init__(self, caminho_roles, caminho_prvrestritos):
         self.caminho_roles = caminho_roles
         self.caminho_prvrestritos = caminho_prvrestritos
-        
-    def Arquivo(self):
-        self.caminho_prvrestritos = None
-        with open(self.caminho_roles, newline='', encoding='utf-8') as arquivo:
+        self.roles = self.Arquivo(caminho_roles)
+        self.privileges = self.Arquivo(caminho_prvrestritos)   
+
+    def Arquivo(self, caminho):
+        with open(caminho, newline='', encoding='utf-8') as arquivo:
             newarquivo = list(csv.reader(arquivo, delimiter=';'))
         return newarquivo
     
