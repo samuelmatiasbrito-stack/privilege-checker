@@ -1,4 +1,5 @@
 from classroles import RolesValidator
+
 Validador = RolesValidator('roles.csv', 'restricted_privileges.csv')
 
 while True:
