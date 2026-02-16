@@ -1,6 +1,6 @@
-executivo;prvReadAccount;prvWriteAccount;prvReadSystemUser;prvCreateAccount
-coordenador;prvReadAccount;prvWriteAccount;prvDeleteAccount;prvReadSystemUser;prvCreateAccount
-vendedor_junior;prvReadAccount;prvReadContact;prvReadOpportunity;prvCreateOpportunity
-analista_rh;prvReadSystemUser;prvWriteSystemUser;prvReadBusinessUnit
-suporte_n1;prvReadAccount;prvWriteAccount;prvReadContact;prvReadSystemUser
+executivo;prvReadAccount;prvWriteAccount;prvReadSystemUser;prvCreateAccount;;;;
+coordenador;prvReadAccount;prvWriteAccount;prvDeleteAccount;prvReadSystemUser;prvCreateAccount;;;
+vendedor_junior;prvReadAccount;prvReadContact;prvReadOpportunity;prvCreateOpportunity;;;;
+analista_rh;prvReadSystemUser;prvWriteSystemUser;prvReadBusinessUnit;;;;;
+suporte_n1;prvReadAccount;prvWriteAccount;prvReadContact;prvReadSystemUser;;;;
 admin_sistema;prvReadAccount;prvWriteAccount;prvDeleteAccount;prvCreateAccount;prvReadSystemUser;prvWriteBusinessUnit;prvAssignOpportunity;prvDeleteAuditHistory
