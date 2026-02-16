@@ -12,16 +12,16 @@ Opcao: ')
         print('Qual Role você quer consultar?: ')
         print(Validador.ListarRoles())
         entrada = input('Digite o numero correspondente da Role: ')
-        print(Validador.RoleEspecifica(entrada))
+        print(Validador.ObterRoleEspecifica(entrada))
     elif question == '2':
         print('Qual Role você quer consultar?: ')
         print(Validador.ListarRoles())
         entrada = input('Digite o numero correspondente da Role: ')
-        print(Validador.PrvUnicaRole(entrada))
+        print(Validador.ObterPrvRestritoRoleEspecifica(entrada))
 
         
     elif question == '3':
-        for Privilege in Validador.Arquivo(Validador.caminho_prvrestritos):
+        for Privilege in Validador.LerArquivo(Validador.caminho_prvrestritos):
             for Role in Validador.roles:
                 if Privilege[0] in Role:
                     print(f'{Role[0]} possui {Privilege[0]}({Privilege[1]})')
